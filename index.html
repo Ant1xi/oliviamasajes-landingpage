@@ -510,7 +510,7 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
     <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--verde);font-family:'DM Sans',sans-serif;margin-bottom:20px;">¿No encaja ningún plan?</p>
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,56px);font-weight:300;color:var(--negro);line-height:1.1;margin-bottom:16px;">Calcula tu <em style="font-style:italic;color:var(--verde)">presupuesto</em> a medida.</h2>
     <p style="font-size:1rem;color:var(--txt-s);line-height:1.7;margin-bottom:12px;font-weight:300;">Dinos cuántos empleados participarían y con qué frecuencia. La calculadora te dice cómo quedaría organizado y cuánto costaría — incluyendo si hacen falta varias visitas por jornada.</p>
-    <p style="font-size:0.88rem;color:var(--txt-s);line-height:1.6;margin-bottom:44px;font-weight:300;font-style:italic;">Estos cálculos son una orientación. Olivia adapta cada plan a la realidad de tu empresa — si tienes algo especial en mente, escríbele directamente y lo trabajáis juntos.</p>
+    <p style="font-size:0.88rem;color:var(--txt-s);line-height:1.6;margin-bottom:44px;font-weight:300;font-style:italic;">Estos cálculos son una orientación. Adapto cada plan a la realidad de tu empresa — si tienes algo especial en mente, escríbeme directamente y lo trabajamos juntos.</p>
 
     <div style="background:#f5f4f0;border-radius:16px;padding:40px 40px 36px;">
 
@@ -530,7 +530,7 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
       <!-- AVISO PLAN GRANDE (oculto por defecto) -->
       <div id="aviso-grande" style="display:none;margin-bottom:28px;padding:14px 18px;background:#fff3cd;border-radius:10px;border-left:3px solid #e6a817;">
         <p style="font-size:13px;color:#7d5a00;margin:0;line-height:1.6;">
-          <strong>Para equipos grandes como el tuyo</strong> lo mejor es diseñar un plan específico — rotaciones, días fijos, grupos. Escríbele a Olivia y lo organizáis juntos.
+          <strong>Para equipos de este tamaño</strong> lo mejor es que lo hablemos directamente para organizarlo bien juntos.
           <a href="https://wa.me/+34614118470?text=Hola%20Olivia%2C%20somos%20un%20equipo%20grande%20y%20nos%20gustar%C3%ADa%20hablar%20de%20un%20plan%20a%20medida" target="_blank" style="color:#0D4F38;font-weight:500;margin-left:6px;">Contactar →</a>
         </p>
       </div>
@@ -601,7 +601,7 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
             <div style="font-size:12px;font-weight:500;color:var(--negro);margin-top:6px;" id="precio-total"></div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:4px;">
-            <div style="font-size:11px;color:var(--txt-s);text-align:center;">¿No encaja del todo?<br>Cuéntaselo a Olivia</div>
+            <div style="font-size:11px;color:var(--txt-s);text-align:center;">¿No encaja del todo?<br>Escríbenos y lo vemos</div>
             <a id="calc-wa" href="#" target="_blank"
               style="display:inline-block;background:var(--verde);color:#fff;padding:14px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;">
               Pedir presupuesto por WhatsApp
@@ -613,7 +613,7 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
       <!-- NOTA FLEXIBLE -->
       <div style="margin-top:20px;padding:16px 20px;background:#e8f5ef;border-radius:10px;">
         <p style="font-size:12px;color:#0D4F38;line-height:1.7;margin:0;">
-          <strong>Este cálculo es orientativo.</strong> Si tu empresa necesita algo diferente — rotación por turnos, grupos distintos, días específicos — Olivia se adapta. Lo importante es encontrar un encaje real para tu equipo.<br>
+          <strong>Este cálculo es orientativo.</strong> Si necesitáis algo diferente — días específicos, grupos distintos, cualquier cosa — me adapto. Lo importante es encontrar un encaje real para vuestro equipo.<br>
           <strong>Descuentos:</strong> frecuencia (5–15%) + permanencia (3–12%), sumados automáticamente. Precio neto +IVA.
         </p>
       </div>
@@ -625,7 +625,7 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
       <p style="font-size:1rem;color:var(--txt-s);margin-bottom:20px;font-weight:300;">¿Tienes en mente algo que no ves aquí? Cuéntaselo directamente.</p>
       <a href="https://wa.me/+34614118470?text=Hola%20Olivia%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20plan%20a%20medida%20para%20mi%20empresa" target="_blank"
         style="display:inline-block;border:1.5px solid var(--verde);color:var(--verde);padding:14px 32px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;">
-        Hablar con Olivia directamente →
+        Escríbeme directamente →
       </a>
     </div>
 
@@ -699,28 +699,25 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
     visVal.textContent = v + (v === 1 ? ' visita' : ' visitas');
     mesVal.textContent = m + (m === 1 ? ' mes' : ' meses');
 
-    // Aviso equipo grande
-    var esGrande = emp >= 50;
-    avisoGrande.style.display = esGrande ? 'block' : 'none';
-
-    // Calcular horas y visitas necesarias por jornada
-    var hNecesarias    = Math.ceil(emp / SES_H);           // horas para cubrir a todos
-    var visitasPorJorn = Math.ceil(hNecesarias / MAX_H);   // visitas de 6h para cubrirlos
-    var hPorVisita     = Math.min(hNecesarias, MAX_H);     // horas reales por visita
-
-    // Texto estructura visita
-    var vtxt = '';
-    if(visitasPorJorn === 1){
-      vtxt = '<strong>' + hPorVisita + 'h por visita</strong> — suficiente para atender a los ' + emp + ' empleados (' + (hPorVisita * SES_H) + ' sesiones de 15-20 min).';
-    } else {
-      vtxt = 'Para atender a <strong>' + emp + ' empleados</strong> hacen falta <strong>' + hNecesarias + 'h</strong> en total. '
-           + 'Como Olivia hace hasta ' + MAX_H + 'h por visita, '
-           + 'se organizaría en <strong>' + visitasPorJorn + ' visitas de ' + hPorVisita + 'h</strong> cada una. '
-           + 'Pueden ser días distintos o en la misma semana — se adapta a vosotros.';
+    // Avisos según número de empleados
+    var aviso = '';
+    var avisoColor = '';
+    if(emp > 50) {
+      aviso = '⚠️ Para equipos de este tamaño lo mejor es que lo hablemos directamente para organizarnos bien. <a href="https://wa.me/+34614118470?text=Hola%20Olivia%2C%20somos%20un%20equipo%20grande%20y%20queremos%20hablar%20de%20c%C3%B3mo%20organizar%20el%20servicio" target="_blank" style="color:inherit;font-weight:600;text-decoration:underline;">Escríbeme aquí →</a>';
+      avisoColor = 'background:#FFF3CD;border-left:3px solid #e6a817;color:#7d5a00;';
+    } else if(emp > 18) {
+      aviso = '💡 Con ' + emp + ' empleados, lo más cómodo es repartirlo en más de una visita. Escríbeme y lo organizamos juntos sin complicaciones.';
+      avisoColor = 'background:#e8f5ef;border-left:3px solid var(--verde);color:#0D4F38;';
     }
-    visitaTxt.innerHTML = vtxt;
+    if(aviso) {
+      visitaTxt.parentElement.style.cssText = 'display:block;padding:14px 18px;border-radius:10px;margin-bottom:32px;' + avisoColor;
+      visitaTxt.innerHTML = aviso;
+    } else {
+      visitaTxt.parentElement.style.display = 'none';
+    }
+    var esGrande = emp > 50;
 
-    // Intervalo entre visitas (contando visitas reales = v × visitasPorJorn)
+    // Intervalo entre visitas
     intervaloTxt.textContent = intervaloTexto(v);
 
     // Descuentos
@@ -728,19 +725,14 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
     var dM = descMeses(m);
     var totalDesc = Math.min(dF.pct + dM.pct, 30);
 
-    // Precio: por visita cobras hPorVisita × SES_H sesiones × 18€
-    // Total visitas al mes = v × visitasPorJorn
-    var visitasMes   = v * visitasPorJorn;
-    var sesionesMes  = visitasMes * hPorVisita * SES_H;
-    var precioBase   = sesionesMes * 18;
+    // Precio: emp × 18€ × visitas al mes
+    var precioBase = emp * 18 * v;
     var precioFinal  = Math.round(precioBase * (1 - totalDesc / 100));
     var precioTotal  = precioFinal * m;
 
-    precioMesEl.textContent = esGrande ? '–' : precioFinal;
-    precioDetEl.textContent = esGrande
-      ? 'Para equipos grandes consulta plan personalizado'
-      : '18€ × ' + (hPorVisita * SES_H) + ' ses/visita × ' + visitasMes + ' visitas/mes · base ' + precioBase + '€';
-    precioTotEl.innerHTML = esGrande ? '' : 'Total ' + m + ' meses: <strong>' + precioTotal.toLocaleString('es-ES') + '€ +IVA</strong>';
+    precioMesEl.textContent = precioFinal;
+    precioDetEl.textContent = '18€/sesión · ' + v + ' visita' + (v>1?'s':'') + '/mes · ' + emp + ' empleados · base ' + precioBase + '€';
+    precioTotEl.innerHTML = 'Total ' + m + ' meses: <strong>' + precioTotal.toLocaleString('es-ES') + '€ +IVA</strong>';
 
     // Badges descuento
     var html = '';
@@ -778,7 +770,7 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
     <div class="disc-puntos r d3">
       <div class="dp"><div class="dp-n">2h</div><div><div class="dp-t">Jornada real en tus instalaciones</div><div class="dp-d">Tu equipo recibe el servicio completo. Sin simulaciones.</div></div></div>
       <div class="dp"><div class="dp-n">60€</div><div><div class="dp-t">Precio especial de demostración</div><div class="dp-d">Descuento íntegro en el primer mes si contratas un plan mensual. En jornadas sueltas no aplica.</div></div></div>
-      <div class="dp"><div class="dp-n">24h</div><div><div class="dp-t">Respuesta en menos de un día</div><div class="dp-d">Contacta hoy y en 24h tienes fechas disponibles.</div></div></div>
+      <div class="dp"><div class="dp-n">24h</div><div><div class="dp-t">Respuesta en menos de un día</div><div class="dp-d">Escríbeme hoy y en 24h tienes fechas disponibles.</div></div></div>
     </div>
     <a href="https://wa.me/+34614118470?text=Hola%20Olivia%2C%20quiero%20reservar%20el%20Discovery%20Day%20para%20mi%20empresa" class="btn-p r d4" target="_blank" style="align-self:flex-start">✦ Reservar Discovery Day</a>
   </div>
