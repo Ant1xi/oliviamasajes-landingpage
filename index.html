@@ -506,41 +506,74 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
 
 <!-- CALCULADORA DE PRESUPUESTO PERSONALIZADO -->
 <section id="calculadora" style="background:var(--blanco);padding:96px 0;">
-  <div style="max-width:760px;margin:0 auto;padding:0 32px;">
+  <div style="max-width:780px;margin:0 auto;padding:0 32px;">
     <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--verde);font-family:'DM Sans',sans-serif;margin-bottom:20px;">¿No encaja ningún plan?</p>
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,56px);font-weight:300;color:var(--negro);line-height:1.1;margin-bottom:16px;">Calcula tu <em style="font-style:italic;color:var(--verde)">presupuesto</em> a medida.</h2>
-    <p style="font-size:1rem;color:var(--txt-s);line-height:1.7;margin-bottom:52px;font-weight:300;">Ajusta frecuencia, duración y compromiso. A más meses, mayor descuento — hasta un 20% combinado. El precio se actualiza en tiempo real.</p>
+    <p style="font-size:1rem;color:var(--txt-s);line-height:1.7;margin-bottom:12px;font-weight:300;">Dinos cuántos empleados participarían y con qué frecuencia. La calculadora te dice cómo quedaría organizado y cuánto costaría — incluyendo si hacen falta varias visitas por jornada.</p>
+    <p style="font-size:0.88rem;color:var(--txt-s);line-height:1.6;margin-bottom:44px;font-weight:300;font-style:italic;">Estos cálculos son una orientación. Olivia adapta cada plan a la realidad de tu empresa — si tienes algo especial en mente, escríbele directamente y lo trabajáis juntos.</p>
 
     <div style="background:#f5f4f0;border-radius:16px;padding:40px 40px 36px;">
 
-      <!-- SLIDER FRECUENCIA -->
-      <div style="margin-bottom:32px;">
+      <!-- SLIDER EMPLEADOS -->
+      <div style="margin-bottom:10px;">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
-          <label style="font-size:14px;font-weight:500;color:var(--negro);font-family:'DM Sans',sans-serif;">Visitas por semana</label>
-          <span id="frec-val" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--verde);">1 visita</span>
+          <label style="font-size:14px;font-weight:500;color:var(--negro);font-family:'DM Sans',sans-serif;">¿Cuántos empleados recibirían el servicio?</label>
+          <span id="emp-val" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--verde);">6 empleados</span>
         </div>
-        <input id="frec" type="range" min="1" max="5" value="1" step="1"
+        <input id="emp" type="range" min="3" max="54" value="6" step="1"
           style="width:100%;accent-color:var(--verde);height:4px;cursor:pointer;">
         <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--txt-s);">
-          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+          <span>3</span><span>9</span><span>18</span><span>27</span><span>36</span><span>45</span><span>54+</span>
         </div>
       </div>
 
-      <!-- SLIDER DURACIÓN -->
-      <div style="margin-bottom:32px;">
+      <!-- AVISO PLAN GRANDE (oculto por defecto) -->
+      <div id="aviso-grande" style="display:none;margin-bottom:28px;padding:14px 18px;background:#fff3cd;border-radius:10px;border-left:3px solid #e6a817;">
+        <p style="font-size:13px;color:#7d5a00;margin:0;line-height:1.6;">
+          <strong>Para equipos grandes como el tuyo</strong> lo mejor es diseñar un plan específico — rotaciones, días fijos, grupos. Escríbele a Olivia y lo organizáis juntos.
+          <a href="https://wa.me/+34614118470?text=Hola%20Olivia%2C%20somos%20un%20equipo%20grande%20y%20nos%20gustar%C3%ADa%20hablar%20de%20un%20plan%20a%20medida" target="_blank" style="color:#0D4F38;font-weight:500;margin-left:6px;">Contactar →</a>
+        </p>
+      </div>
+
+      <!-- INFO ESTRUCTURA VISITA -->
+      <div id="visita-info" style="background:var(--blanco);border-radius:10px;padding:14px 18px;margin-bottom:32px;border-left:3px solid var(--verde);">
+        <div style="font-size:11px;color:var(--txt-s);margin-bottom:5px;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.08em;">Estructura de visita</div>
+        <div id="visita-texto" style="font-size:13px;color:var(--negro);line-height:1.7;"></div>
+      </div>
+
+      <!-- SLIDER VISITAS AL MES -->
+      <div style="margin-bottom:10px;">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
-          <label style="font-size:14px;font-weight:500;color:var(--negro);font-family:'DM Sans',sans-serif;">Duración de cada visita</label>
-          <span id="dur-val" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--verde);">2h</span>
+          <label style="font-size:14px;font-weight:500;color:var(--negro);font-family:'DM Sans',sans-serif;">Visitas al mes</label>
+          <span id="vis-val" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--verde);">1 visita</span>
         </div>
-        <input id="dur" type="range" min="1" max="6" value="2" step="1"
+        <input id="vis" type="range" min="1" max="10" value="1" step="1"
           style="width:100%;accent-color:var(--verde);height:4px;cursor:pointer;">
         <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:var(--txt-s);">
-          <span>1h</span><span>2h</span><span>3h</span><span>4h</span><span>5h</span><span>6h</span>
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+        </div>
+      </div>
+
+      <!-- INTERVALO ENTRE VISITAS -->
+      <div id="intervalo-box" style="background:var(--blanco);border-radius:10px;padding:12px 18px;margin-bottom:32px;display:flex;align-items:center;gap:12px;">
+        <span style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:#e8f5ef;border-radius:8px;flex-shrink:0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="18" height="18" rx="3" stroke="#0D4F38" stroke-width="1.8" fill="none"/>
+            <path d="M3 9h18" stroke="#0D4F38" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M8 2v4M16 2v4" stroke="#0D4F38" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="8" cy="14" r="1.2" fill="#0D4F38"/>
+            <circle cx="12" cy="14" r="1.2" fill="#0D4F38"/>
+            <circle cx="16" cy="14" r="1.2" fill="#0D4F38"/>
+          </svg>
+        </span>
+        <div>
+          <div style="font-size:11px;color:var(--txt-s);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;">Intervalo entre visitas</div>
+          <div id="intervalo-texto" style="font-size:14px;font-weight:500;color:var(--negro);"></div>
         </div>
       </div>
 
       <!-- SLIDER MESES -->
-      <div style="margin-bottom:40px;">
+      <div style="margin-bottom:36px;">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
           <label style="font-size:14px;font-weight:500;color:var(--negro);font-family:'DM Sans',sans-serif;">Meses de contratación</label>
           <span id="mes-val" style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--verde);">3 meses</span>
@@ -552,11 +585,11 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
         </div>
       </div>
 
-      <!-- DESGLOSE DESCUENTOS -->
+      <!-- BADGES DESCUENTO -->
       <div id="desc-desglose" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;"></div>
 
       <!-- RESULTADO -->
-      <div style="background:var(--blanco);border-radius:12px;padding:28px 32px;">
+      <div id="resultado-box" style="background:var(--blanco);border-radius:12px;padding:28px 32px;">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;">
           <div>
             <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--txt-s);font-family:'DM Sans',sans-serif;margin-bottom:4px;">Estimación mensual</div>
@@ -565,10 +598,10 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
               <span style="font-size:18px;color:var(--txt-s);font-weight:300;">€ +IVA/mes</span>
             </div>
             <div style="font-size:12px;color:var(--txt-s);margin-top:4px;" id="precio-det"></div>
-            <div style="font-size:12px;color:var(--txt-s);margin-top:6px;" id="precio-total"></div>
+            <div style="font-size:12px;font-weight:500;color:var(--negro);margin-top:6px;" id="precio-total"></div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:4px;">
-            <div style="font-size:11px;color:var(--txt-s);">¿Te interesa?</div>
+            <div style="font-size:11px;color:var(--txt-s);text-align:center;">¿No encaja del todo?<br>Cuéntaselo a Olivia</div>
             <a id="calc-wa" href="#" target="_blank"
               style="display:inline-block;background:var(--verde);color:#fff;padding:14px 22px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;">
               Pedir presupuesto por WhatsApp
@@ -577,89 +610,160 @@ footer{background:var(--negro);padding:40px 64px;display:flex;justify-content:sp
         </div>
       </div>
 
-      <!-- NOTA -->
-      <p style="font-size:11px;color:var(--txt-s);margin-top:18px;line-height:1.6;">
-        <strong>Descuento por frecuencia:</strong> 5% (2 vis/sem) · 10% (3) · 15% (4-5) &nbsp;|&nbsp;
-        <strong>Descuento por permanencia:</strong> 0% (3m) · 3% (4-5m) · 5% (6-8m) · 8% (9-11m) · 12% (12m) &nbsp;|&nbsp;
-        Ambos descuentos se suman. Precio neto +IVA.
-      </p>
+      <!-- NOTA FLEXIBLE -->
+      <div style="margin-top:20px;padding:16px 20px;background:#e8f5ef;border-radius:10px;">
+        <p style="font-size:12px;color:#0D4F38;line-height:1.7;margin:0;">
+          <strong>Este cálculo es orientativo.</strong> Si tu empresa necesita algo diferente — rotación por turnos, grupos distintos, días específicos — Olivia se adapta. Lo importante es encontrar un encaje real para tu equipo.<br>
+          <strong>Descuentos:</strong> frecuencia (5–15%) + permanencia (3–12%), sumados automáticamente. Precio neto +IVA.
+        </p>
+      </div>
 
     </div>
+
+    <!-- CTA CONTACTO DIRECTO -->
+    <div style="margin-top:40px;text-align:center;">
+      <p style="font-size:1rem;color:var(--txt-s);margin-bottom:20px;font-weight:300;">¿Tienes en mente algo que no ves aquí? Cuéntaselo directamente.</p>
+      <a href="https://wa.me/+34614118470?text=Hola%20Olivia%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20plan%20a%20medida%20para%20mi%20empresa" target="_blank"
+        style="display:inline-block;border:1.5px solid var(--verde);color:var(--verde);padding:14px 32px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;">
+        Hablar con Olivia directamente →
+      </a>
+    </div>
+
   </div>
 </section>
 
 <script>
 (function(){
-  var frecEl  = document.getElementById('frec');
-  var durEl   = document.getElementById('dur');
+  var empEl   = document.getElementById('emp');
+  var visEl   = document.getElementById('vis');
   var mesesEl = document.getElementById('meses');
-  var frecVal = document.getElementById('frec-val');
-  var durVal  = document.getElementById('dur-val');
-  var mesVal  = document.getElementById('mes-val');
-  var precioMesEl  = document.getElementById('precio-mes');
-  var precioDetEl  = document.getElementById('precio-det');
-  var precioTotEl  = document.getElementById('precio-total');
-  var desgloseEl   = document.getElementById('desc-desglose');
-  var waLink       = document.getElementById('calc-wa');
 
-  function descFrecuencia(f){
-    if(f>=4) return {pct:15, label:'15% por frecuencia (4-5 vis/sem)'};
-    if(f>=3) return {pct:10, label:'10% por frecuencia (3 vis/sem)'};
-    if(f>=2) return {pct:5,  label:'5% por frecuencia (2 vis/sem)'};
+  var empVal      = document.getElementById('emp-val');
+  var visVal      = document.getElementById('vis-val');
+  var mesVal      = document.getElementById('mes-val');
+  var visitaTxt   = document.getElementById('visita-texto');
+  var intervaloTxt= document.getElementById('intervalo-texto');
+  var avisoGrande = document.getElementById('aviso-grande');
+  var desglose    = document.getElementById('desc-desglose');
+  var precioMesEl = document.getElementById('precio-mes');
+  var precioDetEl = document.getElementById('precio-det');
+  var precioTotEl = document.getElementById('precio-total');
+  var waLink      = document.getElementById('calc-wa');
+
+  var MAX_H = 6; // horas máximas por visita
+  var SES_H = 3; // sesiones de 15-20 min por hora
+
+  function intervaloTexto(v){
+    var diasMes = 30;
+    var dias = Math.round(diasMes / v);
+    if(v === 1)  return 'Una vez al mes';
+    if(v === 2)  return 'Cada 15 días';
+    if(v === 3)  return 'Cada 10 días';
+    if(v === 4)  return 'Una vez a la semana';
+    if(v === 5)  return 'Cada 6 días aprox.';
+    if(v === 6)  return 'Cada 5 días (casi diario)';
+    if(v === 7)  return 'Cada 4 días aprox.';
+    if(v === 8)  return 'Dos veces a la semana';
+    if(v === 9)  return 'Cada 3-4 días';
+    if(v === 10) return 'Cada 3 días';
+    return 'Cada ' + dias + ' días';
+  }
+
+  function descFrecuencia(v){
+    // Basado en visitas al mes
+    if(v >= 8)  return {pct:15, label:'15% — alta frecuencia (8+ vis/mes)'};
+    if(v >= 5)  return {pct:10, label:'10% — frecuencia media-alta (5-7 vis/mes)'};
+    if(v >= 3)  return {pct:5,  label:'5% — frecuencia media (3-4 vis/mes)'};
     return {pct:0, label:''};
   }
 
   function descMeses(m){
-    if(m>=12) return {pct:12, label:'12% por anualidad'};
-    if(m>=9)  return {pct:8,  label:'8% por 9-11 meses'};
-    if(m>=6)  return {pct:5,  label:'5% por 6-8 meses'};
-    if(m>=4)  return {pct:3,  label:'3% por 4-5 meses'};
-    return {pct:0, label:'0% (mínimo 3 meses)'};
+    if(m >= 12) return {pct:12, label:'12% por anualidad'};
+    if(m >= 9)  return {pct:8,  label:'8% por 9-11 meses'};
+    if(m >= 6)  return {pct:5,  label:'5% por 6-8 meses'};
+    if(m >= 4)  return {pct:3,  label:'3% por 4-5 meses'};
+    return {pct:0, label:'mínimo 3 meses'};
   }
 
-  function badge(label, pct, color){
-    return '<span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:5px 10px;border-radius:6px;background:' + color + ';font-weight:500;">' + (pct>0?'−'+pct+'% ':'') + label + '</span>';
+  function badge(txt, color){
+    return '<span style="display:inline-flex;align-items:center;font-size:11px;padding:5px 10px;border-radius:6px;background:'+color+';font-weight:500;">'+txt+'</span>';
   }
 
   function calc(){
-    var f = parseInt(frecEl.value);
-    var h = parseInt(durEl.value);
-    var m = parseInt(mesesEl.value);
+    var emp = parseInt(empEl.value);
+    var v   = parseInt(visEl.value);
+    var m   = parseInt(mesesEl.value);
 
-    frecVal.textContent = f + (f===1?' visita':' visitas');
-    durVal.textContent  = h + 'h';
-    mesVal.textContent  = m + (m===1?' mes':' meses');
+    // Actualizar labels
+    empVal.textContent = emp + ' empleado' + (emp === 1 ? '' : 's');
+    visVal.textContent = v + (v === 1 ? ' visita' : ' visitas');
+    mesVal.textContent = m + (m === 1 ? ' mes' : ' meses');
 
-    var dF = descFrecuencia(f);
+    // Aviso equipo grande
+    var esGrande = emp >= 50;
+    avisoGrande.style.display = esGrande ? 'block' : 'none';
+
+    // Calcular horas y visitas necesarias por jornada
+    var hNecesarias    = Math.ceil(emp / SES_H);           // horas para cubrir a todos
+    var visitasPorJorn = Math.ceil(hNecesarias / MAX_H);   // visitas de 6h para cubrirlos
+    var hPorVisita     = Math.min(hNecesarias, MAX_H);     // horas reales por visita
+
+    // Texto estructura visita
+    var vtxt = '';
+    if(visitasPorJorn === 1){
+      vtxt = '<strong>' + hPorVisita + 'h por visita</strong> — suficiente para atender a los ' + emp + ' empleados (' + (hPorVisita * SES_H) + ' sesiones de 15-20 min).';
+    } else {
+      vtxt = 'Para atender a <strong>' + emp + ' empleados</strong> hacen falta <strong>' + hNecesarias + 'h</strong> en total. '
+           + 'Como Olivia hace hasta ' + MAX_H + 'h por visita, '
+           + 'se organizaría en <strong>' + visitasPorJorn + ' visitas de ' + hPorVisita + 'h</strong> cada una. '
+           + 'Pueden ser días distintos o en la misma semana — se adapta a vosotros.';
+    }
+    visitaTxt.innerHTML = vtxt;
+
+    // Intervalo entre visitas (contando visitas reales = v × visitasPorJorn)
+    intervaloTxt.textContent = intervaloTexto(v);
+
+    // Descuentos
+    var dF = descFrecuencia(v);
     var dM = descMeses(m);
-    var totalDesc = Math.min(dF.pct + dM.pct, 35); // cap 35% por seguridad
+    var totalDesc = Math.min(dF.pct + dM.pct, 30);
 
-    var sesiones = h * 3; // 3 sesiones de ~20 min por hora (con higiene y charla entre clientes)
-    var precioBase = sesiones * 18 * f * 4; // mensual sin descuento
-    var precioFinal = Math.round(precioBase * (1 - totalDesc/100));
-    var precioTotal = precioFinal * m;
+    // Precio: por visita cobras hPorVisita × SES_H sesiones × 18€
+    // Total visitas al mes = v × visitasPorJorn
+    var visitasMes   = v * visitasPorJorn;
+    var sesionesMes  = visitasMes * hPorVisita * SES_H;
+    var precioBase   = sesionesMes * 18;
+    var precioFinal  = Math.round(precioBase * (1 - totalDesc / 100));
+    var precioTotal  = precioFinal * m;
 
-    precioMesEl.textContent = precioFinal;
-    precioDetEl.textContent = '18€ × ' + sesiones + ' ses/visita × ' + f + ' visit.' + (f>1?'s':'') + ' × 4 sem — precio base ' + precioBase + '€';
-    precioTotEl.innerHTML   = '<strong>Total ' + m + ' meses: ' + precioTotal.toLocaleString('es-ES') + '€ +IVA</strong>';
+    precioMesEl.textContent = esGrande ? '–' : precioFinal;
+    precioDetEl.textContent = esGrande
+      ? 'Para equipos grandes consulta plan personalizado'
+      : '18€ × ' + (hPorVisita * SES_H) + ' ses/visita × ' + visitasMes + ' visitas/mes · base ' + precioBase + '€';
+    precioTotEl.innerHTML = esGrande ? '' : 'Total ' + m + ' meses: <strong>' + precioTotal.toLocaleString('es-ES') + '€ +IVA</strong>';
 
+    // Badges descuento
     var html = '';
-    if(dF.pct > 0) html += badge(dF.label, dF.pct, '#e8f5ef');
-    else           html += badge('Sin descuento por frecuencia', 0, '#f0f0ee');
-    if(dM.pct > 0) html += badge(dM.label, dM.pct, '#e8f0fb');
-    else           html += badge(dM.label, 0, '#f0f0ee');
-    if(totalDesc > 0) html += badge('Total −' + totalDesc + '%', 0, '#fff3cd');
-    desgloseEl.innerHTML = html;
+    if(!esGrande){
+      if(dF.pct > 0) html += badge('−' + dF.pct + '% ' + dF.label, '#e8f5ef');
+      else           html += badge('Sin descuento por frecuencia', '#f0f0ee');
+      if(dM.pct > 0) html += badge('−' + dM.pct + '% ' + dM.label, '#e8f0fb');
+      else           html += badge(dM.label, '#f0f0ee');
+      if(totalDesc > 0) html += badge('Total −' + totalDesc + '%', '#fff3cd');
+    }
+    desglose.innerHTML = html;
 
-    var waTxt = 'Hola%20Olivia%2C%20me%20interesa%20un%20plan%20a%20medida%3A%20'
-      + f + '%20visita' + (f>1?'s':'') + '%2Fsemana%20de%20' + h + 'h%20cada%20una%2C%20'
-      + m + '%20meses.%20Presupuesto%20estimado%3A%20' + precioFinal + '%E2%82%AC%2Fmes%20%2BIVA%20'
-      + '(total%20' + precioTotal.toLocaleString('es-ES').replace('.','%2E') + '%E2%82%AC%20%2BIVA).';
-    waLink.href = 'https://wa.me/+34614118470?text=' + waTxt;
+    // WhatsApp
+    var msg = 'Hola%20Olivia%2C%20me%20interesa%20un%20plan%20a%20medida%3A%20'
+      + emp + '%20empleados%2C%20'
+      + v + '%20visita' + (v > 1 ? 's' : '') + '%20al%20mes%20(' + encodeURIComponent(intervaloTexto(v)) + ')%2C%20'
+      + m + '%20meses.'
+      + (esGrande ? '%20Somos%20un%20equipo%20grande%20y%20queremos%20hablar%20de%20un%20plan%20personalizado.' : '%20Presupuesto%20estimado%3A%20' + precioFinal + '%E2%82%AC%2Fmes%20%2BIVA.');
+    waLink.href = 'https://wa.me/+34614118470?text=' + msg;
   }
 
-  frecEl.addEventListener('input', calc);
-  durEl.addEventListener('input', calc);
+  empEl.addEventListener('input', calc);
+  visEl.addEventListener('input', calc);
   mesesEl.addEventListener('input', calc);
   calc();
 })();
